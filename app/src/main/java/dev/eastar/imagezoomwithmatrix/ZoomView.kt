@@ -28,12 +28,13 @@ class ZoomView @JvmOverloads constructor(
     }
 
     override fun onDraw(canvas: Canvas) {
-        if (mBitmap != null) {
-            canvas.save()
-            canvas.concat(mZoomState.matrix)
-            canvas.drawBitmap(mBitmap, 0f, 0f, mPaint)
-            canvas.restore()
-        }
+        mPaint.alpha = 0x80
+        canvas.drawBitmap(mBitmap, 0f, 0f, mPaint)
+        mPaint.alpha = 0xff
+        canvas.save()
+        canvas.concat(mZoomState.matrix)
+        canvas.drawBitmap(mBitmap, 0f, 0f, mPaint)
+        canvas.restore()
     }
 
     override fun update(observable: Observable?, data: Any?) {
