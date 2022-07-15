@@ -14,7 +14,7 @@ import dev.eastar.imagezoomwithmatrix.ZoomState.ZoomStyle
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mZoomView: ZoomView
-    private lateinit var mZoomStateView: ZoomStateView
+//    private lateinit var mZoomStateView: ZoomStateView
     private lateinit var mBitmap: Bitmap
 
     private var mZoomState: ZoomState = ZoomState()
@@ -46,10 +46,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         mZoomState.addObserver(mZoomView)
-        mZoomStateView = findViewById<View>(R.id.zoomstateview) as ZoomStateView
-        mZoomStateView.setZoomState(mZoomState)
-        mZoomGesture.setOnEventDebugListener(mZoomStateView)
-        mDrawGesture.setOnEventDebugListener(mZoomStateView)
+//        mZoomStateView = findViewById<View>(R.id.zoomstateview) as ZoomStateView
+//        mZoomStateView.setZoomState(mZoomState)
+//        mZoomGesture.setOnEventDebugListener(mZoomStateView)
+//        mDrawGesture.setOnEventDebugListener(mZoomStateView)
 
         mBitmap = BitmapFactory.decodeResource(resources, R.drawable.tuna)
         mZoomView.setImage(mBitmap)

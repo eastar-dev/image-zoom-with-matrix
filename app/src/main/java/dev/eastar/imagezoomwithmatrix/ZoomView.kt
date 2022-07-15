@@ -27,14 +27,30 @@ class ZoomView @JvmOverloads constructor(
         mZoomState.reset()
     }
 
+
+    val paintOrg = Paint()
+    val paintNew = Paint()
+
+    init {
+        paintOrg.strokeWidth = 50F
+        paintNew.strokeWidth = 50F
+        paintNew.color = 0xffff0000.toInt()
+    }
+
+
     override fun onDraw(canvas: Canvas) {
-        mPaint.alpha = 0x80
-        canvas.drawBitmap(mBitmap, 0f, 0f, mPaint)
-        mPaint.alpha = 0xff
-        canvas.save()
-        canvas.concat(mZoomState.matrix)
-        canvas.drawBitmap(mBitmap, 0f, 0f, mPaint)
-        canvas.restore()
+        canvas.drawLine(500F, 500F, 1000F, 1000F, paintOrg)
+        canvas.rotate(30F, 500F,500F)
+        canvas.drawLine(500F, 500F, 1000F, 1000F, paintNew)
+
+
+//        mPaint.alpha = 0x80
+//        canvas.drawBitmap(mBitmap, 0f, 0f, mPaint)
+//        mPaint.alpha = 0xff
+//        canvas.save()
+//        canvas.concat(mZoomState.matrix)
+//        canvas.drawBitmap(mBitmap, 0f, 0f, mPaint)
+//        canvas.restore()
     }
 
     override fun update(observable: Observable?, data: Any?) {
