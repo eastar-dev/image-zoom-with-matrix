@@ -37,12 +37,34 @@ class ZoomView @JvmOverloads constructor(
         paintNew.color = 0xffff0000.toInt()
     }
 
+    canvasMap
 
     override fun onDraw(canvas: Canvas) {
-        canvas.drawLine(500F, 500F, 1000F, 1000F, paintOrg)
-        canvas.rotate(30F, 500F,500F)
-        canvas.drawLine(500F, 500F, 1000F, 1000F, paintNew)
+//        canvas.drawLine(500F, 500F, 1000F, 1000F, paintOrg)
+//        canvas.rotate(30F, 500F,500F)
+//        canvas.drawLine(500F, 500F, 1000F, 1000F, paintNew)
 
+        repeat(12) {
+            canvas.drawLine(500F, 0F, 500F, 500F, paintOrg)
+            canvas.rotate(30F, 500F, 500F)
+        }
+
+//        repeat(6) {
+//            canvas.drawLine(500F, 0F, 500F, 1000F, paintOrg)
+//            canvas.rotate(30F, 500F, 500F)
+//        }
+
+        canvas.save()
+        canvas.translate(500f, 500f)
+
+        repeat(12) {
+            canvas.drawLine(0F, 0F, 0F, -500F, paintOrg)
+            canvas.rotate(30F)
+        }
+
+//        canvas.translate(-500f, -500f)
+        canvas.restore()
+        canvas.drawLine(500F, 500F, 1000F, 1000F, paintNew)
 
 //        mPaint.alpha = 0x80
 //        canvas.drawBitmap(mBitmap, 0f, 0f, mPaint)
